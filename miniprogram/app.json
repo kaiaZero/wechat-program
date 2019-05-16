@@ -1,0 +1,13 @@
+{
+  "sitemapLocation": "sitemap.json",
+  "pages": [
+    "pages/classic/classic"
+  ],
+  "window":{
+    "navigationBarBackgroundColor":"#FFFFFF",
+    "navigationBarTitleText":"gone with wind",
+    "navigationBarTextStyle":"black",
+    "navigationStyle":"default",
+    "backgroundColor":"#fff"
+  }
+}

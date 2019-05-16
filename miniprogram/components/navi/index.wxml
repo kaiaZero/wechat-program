@@ -1,0 +1,5 @@
+<view class="container">
+  <image src="{{latest?disLeftSrc:leftSrc}}" bind:tap="onLeft"/>
+  <text>{{title}}</text>
+  <image src="{{first?disRightSrc:rightSrc}}" bind:tap="onRight"/>
+</view>

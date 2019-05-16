@@ -1,0 +1,6 @@
+<view hidden="{{hidden}}"class="classic-container">
+  <image src="{{img}}" class="classic-img" />
+  <image src="{{playsrc}}" />
+  <image class="tag" src="images/music@tag.png" />
+  <text class="content">{{content}}</text>
+</view>
