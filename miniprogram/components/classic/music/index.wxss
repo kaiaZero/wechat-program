@@ -6,10 +6,17 @@
   align-items: center;
 }
 .classic-img{
-  width:500rpx;
-  height:500rpx;
+  width:422rpx;
+  height:422rpx;
   border-radius: 50%;
-  margin-top:20rpx;
+  margin-top:50rpx;
+}
+.player-img{
+  width:120rpx;
+  height:120rpx;
+  border-radius:50%;
+  position:relative;
+  top:-270rpx;
 }
 .tag{
   width:46rpx;

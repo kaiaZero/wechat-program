@@ -1,13 +1,44 @@
 {
   "sitemapLocation": "sitemap.json",
   "pages": [
-    "pages/classic/classic"
+    "pages/classic/classic",
+    "pages/my/my",
+    "pages/book/book"
   ],
-  "window":{
-    "navigationBarBackgroundColor":"#FFFFFF",
-    "navigationBarTitleText":"gone with wind",
-    "navigationBarTextStyle":"black",
-    "navigationStyle":"default",
-    "backgroundColor":"#fff"
+  "window": {
+    "navigationBarBackgroundColor": "#FFFFFF",
+    "navigationBarTitleText": "gone with wind",
+    "navigationBarTextStyle": "black",
+    "navigationStyle": "default",
+    "backgroundColor": "#fff",
+    "requiredBackgroundModes": [
+      "audio"
+    ],
+    "enablePullDownRefresh": false
+  },
+  "tabBar": {
+    "selectedColor":"#000000",
+    "backgroundColor":"#ffffff",
+    "color":"c7c7c7",
+    "list": [
+      {
+        "text": "流行",
+        "selectedIconPath": "/images/tab/classic@highlight.png",
+        "pagePath": "pages/classic/classic",
+        "iconPath": "/images/tab/classic.png"
+      },
+      {
+        "text": "书籍",
+        "selectedIconPath": "/images/tab/book@highlight.png",
+        "pagePath": "pages/book/book",
+        "iconPath": "/images/tab/book.png"
+      },
+      {
+        "text": "喜欢",
+        "selectedIconPath": "/images/tab/my@highlight.png",
+        "pagePath": "pages/my/my",
+        "iconPath": "/images/tab/my.png"
+      }
+    ]
   }
 }

@@ -14,7 +14,8 @@ Page({
     latest:true,
     first:false,
     likeCount:0,
-    likeStatus:false
+    likeStatus:false,
+    playNo:0
   },
 
   /**
@@ -30,6 +31,11 @@ Page({
       })
       classic._setLatestIndex(this.data.classicData.index.toString())
 
+    })
+  },
+  onPlay:function(event){
+    this.setData({
+      playNo:event.detail
     })
   },
 
