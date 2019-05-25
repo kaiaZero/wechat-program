@@ -2,6 +2,10 @@
 import {
   BookModel
 } from '../../models/book.js'
+import {
+  random
+} from '../../util/common.js'
+
 const bookModel = new BookModel()
 
 Page({
@@ -10,26 +14,41 @@ Page({
  * 页面的初始数据
  */
 data: {
-
+  books:[],
+  searching:false,
+  hotSearch:[],
+  more:''
 },
 
 /**
  * 生命周期函数--监听页面加载
  */
 onLoad: function(options) {
-  //promise的正确用法
   bookModel.getHotList()
   .then(res=>{
-    console.log(res)
-    return bookModel.getMyBookCount()
-  }).then(res=>{
-    console.log(res)
-    return bookModel.getMyBookCount()
-  }).then(res=>{
-    console.log(res)
+    this.setData({
+      books:res
+    }) 
   })
-  // const hotList = bookModel.getHotList()
+  bookModel.getHotKeywords()
+  .then(res=>{
+    this.setData({
+      hotSearch: res.hot
+    })  
+  })
   //多次调用api的情况
+  //promise的正确用法
+  // bookModel.getHotList()
+  // .then(res=>{
+  //   console.log(res)
+  //   return bookModel.getMyBookCount()
+  // }).then(res=>{
+  //   console.log(res)
+  //   return bookModel.getMyBookCount()
+  // }).then(res=>{
+  //   console.log(res)
+  // })
+  // const hotList = bookModel.getHotList()
   //典型的promise错误用法
   // hotList.then(res=>{
   //   console.log(res)
@@ -43,6 +62,16 @@ onLoad: function(options) {
   //   })
   // })
 
+},
+onSearching(){
+  this.setData({
+    searching:true
+  })
+},
+onCancel(){
+  this.setData({
+    searching: false
+  })
 },
 
 /**
@@ -84,7 +113,9 @@ onReady: function() {
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function() {
-
+    this.setData({
+      more:random(16)
+    })
   },
 
   /**

@@ -1,0 +1,43 @@
+<view class="container">
+  <view class="header">
+    <view class="search-container">
+      <image class="icon" src="images/search.png" />
+      <input value="{{q}}" bindconfirm="onSearch" placeholder='书籍名' placeholder-class="in-bar" class="bar" focus="{{true}}" />
+      <image bind:tap="onX" class="cancel-img" src="images/cancel.png" />
+    </view>
+    <view class="cancel" bind:tap="onCancel">取消</view>
+  </view>
+  <view wx:if="{{!searching}}">
+    <view class="history">
+      <view class="title">
+        <view class="chunk"></view>
+        <text>历史搜索</text>
+      </view>
+      <view class="tags">
+        <block wx:for="{{historyWords}}" wx:key="content">
+          <v-tag bind:tapping="onSearch" class="tag" text="{{item}}" />
+        </block>
+      </view>
+    </view>
+    <view class="history hot-search">
+      <view class="title">
+        <view class="chunk"></view>
+        <text>热门搜索</text>
+      </view>
+      <view class="tags">
+        <block wx:for="{{hotSearch}}" wx:key="content">
+          <v-tag bind:tapping="onSearch" class="tag" text="{{item}}" />
+        </block>
+      </view>
+
+    </view>
+  </view>
+  <view>
+        <view wx:if="{{searching}}" class="books-container">
+    <block wx:for="{{dataArray}}" wx:key="item.id">
+      <v-book  book="{{item}}" />
+    </block>
+    </view>
+
+  </view>
+</view>
