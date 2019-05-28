@@ -1,18 +1,67 @@
 // miniprogram/pages/my/my.js
+import {ClassicModel} from '../../models/classic.js'
+import {BookModel} from '../../models/book.js'
+const classicModel = new ClassicModel()
+const bookModel = new BookModel()
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    userInfo:null,
+    authorized:false,
+    bookCount:0
+  },
+  onGetUserInfo(event){
+    const userInfo = event.detail.userInfo
+    if(userInfo){
+      this.setData({
+        userInfo,
+        authorized: true
+      })
+    }
+  },
+  userAuthorized(){
+    wx.getSetting({
+      success:data=>{
+        if(data.authSetting['scope.userInfo']){
+          wx.getUserInfo({
+            success:data=>{
+              this.setData({
+                authorized:true,
+                userInfo:data.userInfo
+              })
+            }
+          })
+        }else{
+          console.log('err')
+        }
+      }
+    })
   },
 
+  getMyBookCount(){
+    bookModel.getMyBookCount()
+    .then(res=>{
+      this.setData({
+        bookCount:res.count
+      })
+    })
+  },
+ 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    // wx.getUserInfo({
+    //   success:data=>{
+    //     console.log(data)
+    //   }
+    // })
+    this.userAuthorized()
+    this.getMyBookCount()
   },
 
   /**

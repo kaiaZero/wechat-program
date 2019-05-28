@@ -35,7 +35,8 @@ class BookModel extends HTTP {
       url:'book/search?summary=1',
       data: {
         start:start,
-        q:q
+        q:q,
+        count:10
       },
       method: 'GET'
 

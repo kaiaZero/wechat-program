@@ -33,11 +33,16 @@
     </view>
   </view>
   <view>
-        <view wx:if="{{searching}}" class="books-container">
-    <block wx:for="{{dataArray}}" wx:key="item.id">
-      <v-book  book="{{item}}" />
-    </block>
-    </view>
+    <view wx:if="{{searching}}" class="books-container">
+      <v-loading class="loading-center" wx:if="{{loadingCenter}}" />
 
+      <block wx:for="{{dataArray}}" wx:key="item.id">
+        <v-book like="{{false}}" book="{{item}}" />
+      </block>
+      <view class="loading-box">
+        <v-loading class="loading" wx:if="{{loading}}" />
+      </view>
+    </view>
   </view>
+  <text wx:if="{{nonResult}}" class="empty-tip">没有搜索到书籍</text>
 </view>
