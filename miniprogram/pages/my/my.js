@@ -14,6 +14,11 @@ Page({
     authorized:false,
     bookCount:0
   },
+  onPreviewTap(event) {
+    wx.navigateTo({
+      url: '/pages/classic-detail/index?cid=' + event.detail.cid + '&type=' + event.detail.type
+    })
+  },
   onGetUserInfo(event){
     const userInfo = event.detail.userInfo
     if(userInfo){
@@ -50,6 +55,15 @@ Page({
       })
     })
   },
+
+  getMyFavor(){
+    classicModel.getMyFavor(res=>{
+      this.setData({
+        classics:res
+      })
+    })
+  },
+  
  
   /**
    * 生命周期函数--监听页面加载
@@ -62,6 +76,7 @@ Page({
     // })
     this.userAuthorized()
     this.getMyBookCount()
+    this.getMyFavor()
   },
 
   /**

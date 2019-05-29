@@ -43,7 +43,6 @@ Component({
       if (!this.data.playing) {
         mMgr.src = this.properties.src
         mMgr.title = this.properties.title
-        console.log(this.properties.title)
         this.setData({
           playing: !this.data.playing
         })

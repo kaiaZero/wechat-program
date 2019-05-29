@@ -18,4 +18,12 @@
       <text class="description">喜欢的书</text>
     </view>
   </view>
+  <view class="like-container">
+    <image class="headline" src="/images/my/like.png" />
+    <view class="preview-container">
+      <block wx:for="{{classics}}" wx:key="{{item.id}}" >
+        <v-preview bind:tap="onPreviewTap" class="preview" classic="{{item}}" />
+      </block>
+    </view>
+  </view>
 </view>

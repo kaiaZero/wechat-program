@@ -52,14 +52,12 @@ Component({
       this.setData({
         start:this.data.start+10,
       })
-      console.log(this.data.start)
 
       bookModel.search(this.data.start, this.data.q).then(res=>{
         this.setData({
           dataArray: this.data.dataArray.concat(res.books),
         })
         this._unLocked()
-        console.log(this.data.loading)
       },()=>{
         this._unLocked()
       })

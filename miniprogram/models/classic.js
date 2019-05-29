@@ -36,6 +36,21 @@ class ClassicModel extends HTTP{
     return latestIndex == index ? true : false
   }
 
+  getMyFavor(success){
+    this.request({
+      url:'classic/favor',
+      success:success
+    })
+  }
+
+  getById(cid, type, success) {
+    let params = {
+      url: 'classic/' + type + '/' + cid,
+      success: success
+    }
+    this.request(params)
+  }
+
   _getLatestIndex(){
     let index = wx.getStorageSync('latest')
     return index

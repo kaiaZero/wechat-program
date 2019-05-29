@@ -6,15 +6,15 @@
     "pages/book/book",
     "pages/book-detail/book-detail"
   ],
+  "requiredBackgroundModes": [
+    "audio"
+  ],
   "window": {
     "navigationBarBackgroundColor": "#FFFFFF",
     "navigationBarTitleText": "gone with wind",
     "navigationBarTextStyle": "black",
     "navigationStyle": "default",
     "backgroundColor": "#fff",
-    "requiredBackgroundModes": [
-      "audio"
-    ],
     "enablePullDownRefresh": false
   },
   "tabBar": {
